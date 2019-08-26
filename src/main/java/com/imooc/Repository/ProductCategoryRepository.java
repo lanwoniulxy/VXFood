@@ -10,6 +10,11 @@ import java.util.List;
  */
 public interface ProductCategoryRepository extends JpaRepository<ProductCategory,Integer> {
 
+    /**
+     * 根据类目类型查出类目
+     * @param cateGoryTypeList
+     * @return
+     */
     List<ProductCategory> findByCategoryTypeIn(List<Integer> cateGoryTypeList);
 
 }
