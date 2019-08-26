@@ -3,6 +3,7 @@ package com.imooc.DTO;
 import com.imooc.DataObject.OrderDetail;
 import lombok.Data;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,6 +31,22 @@ public class OrderDTO {
      * 买家微信openid
      */
     private String buyerOpenid;
+    /**
+     * 订单状态 默认为新下单
+     */
+    private Integer orderStatus;
+    /**
+     * 支付状态 默认为已支付
+     */
+    private Integer payStatus;
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+    /**
+     * 修改时间
+     */
+    private Date updateTime;
     /**
      * 商品信息
      */
