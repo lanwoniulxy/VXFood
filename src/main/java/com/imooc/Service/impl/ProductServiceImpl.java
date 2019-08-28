@@ -1,12 +1,11 @@
 package com.imooc.Service.impl;
 
 import com.imooc.DataObject.ProductInfo;
-import com.imooc.Enum.ProductStatusEnmu;
+import com.imooc.Enum.ProductStatusEnum;
 import com.imooc.Repository.ProductInfoRepository;
 import com.imooc.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
      */
     @Override
     public List<ProductInfo> findUpAll() {
-        return productInfoRepository.findByProductStatusIn(ProductStatusEnmu.UP.getCode());
+        return productInfoRepository.findByProductStatusIn(ProductStatusEnum.UP.getCode());
     }
 
 

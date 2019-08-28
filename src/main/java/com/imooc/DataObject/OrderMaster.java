@@ -1,7 +1,7 @@
 package com.imooc.DataObject;
 
-import com.imooc.Enum.OrderStatusEnmu;
-import com.imooc.Enum.PayStatusEnmu;
+import com.imooc.Enum.OrderStatusEnum;
+import com.imooc.Enum.PayStatusEnum;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -45,11 +45,11 @@ public class OrderMaster {
     /**
      * 订单状态 默认为新下单
      */
-    private Integer orderStatus = OrderStatusEnmu.NEW.getCode();
+    private Integer orderStatus = OrderStatusEnum.NEW.getCode();
     /**
      * 支付状态 默认为已支付
      */
-    private Integer payStatus = PayStatusEnmu.WAIT.getCode();
+    private Integer payStatus = PayStatusEnum.WAIT.getCode();
     /**
      * 创建时间
      */

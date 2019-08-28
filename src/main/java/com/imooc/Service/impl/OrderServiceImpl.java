@@ -4,6 +4,8 @@ import com.imooc.DTO.OrderDTO;
 import com.imooc.DataObject.OrderDetail;
 import com.imooc.DataObject.OrderMaster;
 import com.imooc.DataObject.ProductInfo;
+import com.imooc.Enum.ResultEnum;
+import com.imooc.Exception.ReceiveException;
 import com.imooc.Repository.OrderDetailRepository;
 import com.imooc.Repository.OrderMasterRepository;
 import com.imooc.Service.OrderService;
@@ -42,7 +44,7 @@ public class OrderServiceImpl implements OrderService {
         for(OrderDetail orderDetail : orderDTO.getOrderDetailList()) {
             ProductInfo productInfo =productService.findOne(orderDetail.getProductId());
             if(productInfo == null) {
-
+                throw new ReceiveException(ResultEnum.NOT_EXIST.getMessage());
             }
             // 计算订单总金额
             orderAmount = productInfo.getProductPrice()

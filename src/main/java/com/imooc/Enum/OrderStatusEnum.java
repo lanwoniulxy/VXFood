@@ -7,7 +7,7 @@ import lombok.Getter;
  * Created by lxy on 2019/8/1.
  */
 @Getter
-public enum OrderStatusEnmu {
+public enum OrderStatusEnum {
     NEW(0,"新下单"),
     FINISH(1,"已完成"),
     CANCEL(2, "已取消"),
@@ -16,7 +16,7 @@ public enum OrderStatusEnmu {
     private Integer code;
     private String msg;
 
-    OrderStatusEnmu(Integer code, String msg){
+    OrderStatusEnum(Integer code, String msg){
         this.code = code;
         this.msg = msg;
     }
