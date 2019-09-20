@@ -50,14 +50,14 @@ public class OrderServiceImpl implements OrderService {
             orderAmount = productInfo.getProductPrice()
                     .multiply(new BigDecimal(orderDetail.getProductQuantity()))
             .add(orderAmount);
-            // 订单详情入库
+            // 订单详情写入订单详情表
             orderDetail.setDetailId(RandomUtil.getUniqueKey());
             orderDetail.setOrderId(orderId);
             BeanUtils.copyProperties(productInfo, orderDetail);
             orderDetailRepository.save(orderDetail);
         }
 
-        // 写入订单数据库
+        // 写入订单主表
         OrderMaster orderMaster = new OrderMaster();
 
         orderMaster.setOrderId(orderId);

@@ -36,13 +36,15 @@ public class BuyerProductController {
         List<ProductInfo> productInfoList = productService.findUpAll();
         // 2.查出相应的类目
         // 精简方法（java8,lambda）
-        List<Integer> cateTypeLists= productInfoList.stream()
+        List<Integer> cateTypeList=
+        productInfoList.stream()
                 .map(e -> e.getCategoryType())
                 .collect(Collectors.toList());
-        List<ProductCategory> categoryLists = categoryService.findByCategoryTypeIn(cateTypeLists);
+        //根据上架商品的类目类型来查询出类目信息
+        List<ProductCategory> ProductCategoryList = categoryService.findByCategoryTypeIn(cateTypeList);
         // 3.数据的拼装
         List<ProductVO> productVOList = new ArrayList<>();
-        for(ProductCategory productCategory : categoryLists) {
+        for(ProductCategory productCategory : ProductCategoryList) {
             ProductVO productVO = new ProductVO();
             productVO.setCategoryName(productCategory.getCategoryName());
             productVO.setCategoryType(productCategory.getCategoryType());
