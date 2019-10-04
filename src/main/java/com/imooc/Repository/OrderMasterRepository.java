@@ -2,6 +2,8 @@ package com.imooc.Repository;
 
 import com.imooc.DataObject.OrderDetail;
 import com.imooc.DataObject.OrderMaster;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -13,5 +15,5 @@ public interface OrderMasterRepository extends JpaRepository<OrderMaster, String
     /**
      * 根据orderId查出所有订单详情
      */
-    List<OrderDetail> findByOrderId(String orderId);
+    Page<OrderMaster> findByBuyerOpenid(String buyerOpenId, Pageable pageable);
 }

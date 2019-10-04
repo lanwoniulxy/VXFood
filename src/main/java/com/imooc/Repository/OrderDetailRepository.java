@@ -16,6 +16,7 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail, String
     /**
      * 根据openId查出所有Id
      */
-    Page<OrderMaster> findByBuyerOpenid(String buyerOpenId, Pageable pageable);
+    List<OrderDetail> findByOrderId(String orderId);
+
 
 }
