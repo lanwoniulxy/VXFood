@@ -8,6 +8,7 @@ import lombok.Getter;
 @Getter
 public enum ResultEnum {
     NOT_EXIST(10,"商品信息为空"),
+    PRODUCT_STOCK_ERROR(11,"商品库存不正确"),
     ;
 
     private Integer code;
