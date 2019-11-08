@@ -1,7 +1,7 @@
 package com.wechat.Repository;
 
-import com.imooc.dataObject.ProductInfo;
-import com.imooc.repository.ProductInfoRepository;
+import com.wechat.dataObject.ProductInfo;
+import com.wechat.repository.ProductInfoRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

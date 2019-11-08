@@ -1,10 +1,10 @@
 package com.wechat.Service.impl;
 
-import com.imooc.DTO.OrderDTO;
-import com.imooc.Enum.OrderStatusEnum;
-import com.imooc.Enum.PayStatusEnum;
-import com.imooc.dataObject.OrderDetail;
-import com.imooc.service.impl.OrderServiceImpl;
+import com.wechat.DTO.OrderDTO;
+import com.wechat.Enum.OrderStatusEnum;
+import com.wechat.Enum.PayStatusEnum;
+import com.wechat.dataObject.OrderDetail;
+import com.wechat.service.impl.OrderServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;

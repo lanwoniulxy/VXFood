@@ -1,7 +1,7 @@
 package com.wechat.Service.impl;
 
-import com.imooc.dataObject.ProductCategory;
-import com.imooc.service.impl.CategoryServiceImpl;
+import com.wechat.dataObject.ProductCategory;
+import com.wechat.service.impl.CategoryServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

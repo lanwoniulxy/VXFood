@@ -1,4 +1,4 @@
-package com.imooc.service.impl;
+package com.wechat.service.impl;
 
 import org.springframework.stereotype.Service;
 
