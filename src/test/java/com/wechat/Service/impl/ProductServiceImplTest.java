@@ -1,6 +1,7 @@
 package com.wechat.Service.impl;
 
-import com.wechat.DataObject.ProductInfo;
+import com.imooc.dataObject.ProductInfo;
+import com.imooc.service.impl.ProductServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,21 +20,22 @@ import java.math.BigDecimal;
 public class ProductServiceImplTest {
     @Autowired
     private ProductServiceImpl productService;
+
     @Test
     public void findOne() throws Exception {
-    ProductInfo result = productService.findOne("1");
-    Assert.assertEquals("1",result.getProductId());
+        ProductInfo result = productService.findOne("1");
+        Assert.assertEquals("1", result.getProductId());
     }
 
     @Test
     public void findAll() throws Exception {
-       // List<ProductInfo> result = productService.findAll();
-       // Assert.assertNotEquals(0,result.size());
+        // List<ProductInfo> result = productService.findAll();
+        // Assert.assertNotEquals(0,result.size());
     }
 
     @Test
     public void findUpAll() throws Exception {
-        PageRequest pageRequest = new PageRequest(0,2);
+        PageRequest pageRequest = new PageRequest(0, 2);
 //        Page<ProductInfo> result = productService.findUpAll(pageRequest);
 //        System.out.println(result);
 

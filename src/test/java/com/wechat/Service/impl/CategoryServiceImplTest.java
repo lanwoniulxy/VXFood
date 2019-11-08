@@ -1,6 +1,7 @@
 package com.wechat.Service.impl;
 
-import com.wechat.DataObject.ProductCategory;
+import com.imooc.dataObject.ProductCategory;
+import com.imooc.service.impl.CategoryServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,29 +19,29 @@ import java.util.List;
 @SpringBootTest
 public class CategoryServiceImplTest {
     @Autowired
-    private  CategoryServiceImpl categoryService;
+    private CategoryServiceImpl categoryService;
 
     @Test
     public void findOne() throws Exception {
         ProductCategory productCategory = categoryService.findOne(9);
-        Assert.assertEquals(new Integer(9),productCategory.getCategoryId());
+        Assert.assertEquals(new Integer(9), productCategory.getCategoryId());
     }
 
     @Test
     public void findAll() throws Exception {
         List<ProductCategory> productCategories = categoryService.findAll();
-        Assert.assertNotEquals(0,productCategories.size());
+        Assert.assertNotEquals(0, productCategories.size());
     }
 
     @Test
     public void findByCategoryTypeIn() throws Exception {
-        List<ProductCategory> productCategories = categoryService.findByCategoryTypeIn(Arrays.asList(2,3,4));
-        Assert.assertNotEquals(0,productCategories);
+        List<ProductCategory> productCategories = categoryService.findByCategoryTypeIn(Arrays.asList(2, 3, 4));
+        Assert.assertNotEquals(0, productCategories);
     }
 
     @Test
     public void save() throws Exception {
-        ProductCategory productCategory = new ProductCategory("哈哈系列",10);
+        ProductCategory productCategory = new ProductCategory("哈哈系列", 10);
         ProductCategory result = categoryService.save(productCategory);
         Assert.assertNotNull(result);
     }

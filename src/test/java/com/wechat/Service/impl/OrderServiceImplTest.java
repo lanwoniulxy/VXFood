@@ -1,9 +1,10 @@
 package com.wechat.Service.impl;
 
-import com.wechat.DTO.OrderDTO;
-import com.wechat.DataObject.OrderDetail;
-import com.wechat.Enum.OrderStatusEnum;
-import com.wechat.Enum.PayStatusEnum;
+import com.imooc.DTO.OrderDTO;
+import com.imooc.Enum.OrderStatusEnum;
+import com.imooc.Enum.PayStatusEnum;
+import com.imooc.dataObject.OrderDetail;
+import com.imooc.service.impl.OrderServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -26,9 +27,10 @@ import java.util.List;
 @Slf4j
 public class OrderServiceImplTest {
 
+    private final String openid = "123456";
     @Autowired
     private OrderServiceImpl orderService;
-    private final String openid = "123456";
+
     @Test
     public void create() throws Exception {
 
@@ -47,7 +49,7 @@ public class OrderServiceImplTest {
         orderDTO.setOrderDetailList(orderDetailList);
 
         OrderDTO result = orderService.create(orderDTO);
-        log.info("[创建订单]result",result);
+        log.info("[创建订单]result", result);
         System.out.println(result);
 
         Assert.assertNotNull(result);
@@ -56,15 +58,15 @@ public class OrderServiceImplTest {
     @Test
     public void findOne() throws Exception {
         OrderDTO result = orderService.findOne("1570255872451651095");
-        log.info("查询单个订单,result={}",result);
+        log.info("查询单个订单,result={}", result);
         Assert.assertNotNull(result);
     }
 
     @Test
     public void findList() throws Exception {
-        Pageable request = new PageRequest(0,3);
+        Pageable request = new PageRequest(0, 3);
         Page<OrderDTO> result = orderService.findList(openid, request);
-        log.info("查询订单列表,result={}",result.getContent());
+        log.info("查询订单列表,result={}", result.getContent());
         Assert.assertNotEquals(0, result.getTotalElements());
     }
 

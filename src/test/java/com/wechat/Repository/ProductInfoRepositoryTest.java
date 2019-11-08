@@ -1,6 +1,7 @@
 package com.wechat.Repository;
 
-import com.wechat.DataObject.ProductInfo;
+import com.imooc.dataObject.ProductInfo;
+import com.imooc.repository.ProductInfoRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,8 +20,9 @@ import java.util.List;
 public class ProductInfoRepositoryTest {
     @Autowired
     private ProductInfoRepository repository;
+
     @Test
-    public void save(){
+    public void save() {
         ProductInfo productInfo = new ProductInfo();
         productInfo.setCategoryType(2);
         productInfo.setProductDescription("这苹果贼好吃");
@@ -33,10 +35,11 @@ public class ProductInfoRepositoryTest {
         ProductInfo result = repository.save(productInfo);
         Assert.assertNotNull(result);
     }
+
     @Test
     public void findByProductStatusIn() throws Exception {
         List<ProductInfo> result = repository.findByProductStatusIn(0);
-        Assert.assertNotEquals(0,result.size());
+        Assert.assertNotEquals(0, result.size());
     }
 
 }
