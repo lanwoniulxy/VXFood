@@ -1,4 +1,10 @@
 spring:
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+  freemarker:
+    cache: false    #页面不加载缓存，修改即时生效
+
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
@@ -12,6 +18,21 @@ spring:
     default-property-inclusion: non_null
 server:
   context-path: /sell
+
+
 wechat:
-  mpAppId: wx234b65348218b500
-  mpAppSecret: 6d34d263f10fa89ec927320b146aee06
+#  授权的测试公众账号
+#  mpAppId: wx234b65348218b500
+##  授权的测试公众账号密钥
+#  mpAppSecret: 6d34d263f10fa89ec927320b146aee06
+
+  #  支付用的师兄干货公众账号
+  mpAppId: wxd898fcb01713c658
+  #  支付用的师兄干货商户号
+  mchId: 1483469312
+  #  支付用的师兄商户号密钥
+  mchKey: 098F6BCD4621D373CADE4E832627B4F6
+  #  支付用的师兄证书
+  keyPath: F:/var/weixinKey/h5.p12
+  #  支付用的异步通知地址
+  notifyUrl: http://lxy888.natapp1.cc/sell/pay/notify

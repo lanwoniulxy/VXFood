@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * 买家端商品模块
  * Created by lxy on 2019/7/24.
  */
 @RestController

@@ -1,5 +1,6 @@
 package com.wechat.Service.impl;
 
+import com.wechat.Enum.ProductStatusEnum;
 import com.wechat.dataObject.ProductInfo;
 import com.wechat.service.impl.ProductServiceImpl;
 import org.junit.Assert;
@@ -54,6 +55,18 @@ public class ProductServiceImplTest {
         productInfo.setProductStock(100);
         ProductInfo result = productService.save(productInfo);
         Assert.assertNotNull(result);
+    }
+
+    @Test
+    public void offSale () {
+        ProductInfo result = productService.offSale("1");
+        Assert.assertEquals(result.getProductStatus(), ProductStatusEnum.DOWN.getCode());
+    }
+
+    @Test
+    public void onSale () {
+        ProductInfo result = productService.onSale("1");
+        Assert.assertEquals(result.getProductStatus(), ProductStatusEnum.UP.getCode());
     }
 
 }

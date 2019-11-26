@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 /**
+ * 商品Service
  * Created by lxy on 2019/7/22.
  */
 public interface ProductService {
@@ -43,5 +44,11 @@ public interface ProductService {
 
     //减库存
     void decreaseStock(List<CartDTO> cartDTO);
+
+    //商品下架
+    ProductInfo offSale(String productId);
+
+    //商品上架
+    ProductInfo onSale(String productId);
 
 }

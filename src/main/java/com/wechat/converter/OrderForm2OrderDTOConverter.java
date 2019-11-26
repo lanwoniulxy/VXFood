@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 转换类
+ * 表单对象转换DTO对象
  * Created by lxy on 2019/10/6.
  */
 @Slf4j

@@ -18,7 +18,11 @@ public enum ResultEnum {
     ORDER_DETAIL_EMPTY(16, "订单详情为空"),
     ORDER_PAY_STATUS_ERROR(17, "订单支付状态不正确"),
     ORDER_OWNER_ERROR(18, "该订单不属于当前用户"),
-    WECHAT_MP_ERROR(20, "微信公众账号方面错误");
+    WECHAT_MP_ERROR(20, "微信公众账号方面错误"),
+    WXPAY_NOTIFY_MONEY_VERIFY_ERROR(21,"微信支付金额不正确"),
+    ORDER_CANCEL_SUCCESS(22,"订单取消成功"),
+    ORDER_FINISH_SUCCESS(23,"订单完结成功"),
+    PRODUCT_STATUS_ERROR(24, "商品状态不正确");
 
     private Integer code;
     private String message;

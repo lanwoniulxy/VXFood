@@ -6,6 +6,7 @@ import com.wechat.dataObject.ProductCategory;
 import java.util.List;
 
 /**
+ * 商品类目Service
  * Created by lxy on 2019/7/17.
  */
 

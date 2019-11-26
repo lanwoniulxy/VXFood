@@ -4,6 +4,7 @@ import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
+ * 表单校验类
  * Created by lxy on 2019/10/6.
  */
 @Data

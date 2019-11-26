@@ -3,6 +3,7 @@ package com.wechat.utils;
 import java.util.Random;
 
 /**
+ * 订单号生成工具类
  * Created by EDZ on 2019/8/26.
  */
 public class RandomUtil {

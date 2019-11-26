@@ -14,6 +14,7 @@ import com.wechat.dataObject.ProductInfo;
 import com.wechat.repository.OrderDetailRepository;
 import com.wechat.repository.OrderMasterRepository;
 import com.wechat.service.OrderService;
+import com.wechat.service.PayService;
 import com.wechat.service.ProductService;
 import com.wechat.utils.RandomUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -46,6 +47,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderDetailRepository orderDetailRepository;
+
+    @Autowired
+    private PayService payService;
 
     /**
      * 创建订单
@@ -153,7 +157,7 @@ public class OrderServiceImpl implements OrderService {
 
         //4.退款
         if (orderDTO.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())) {
-            //TODO
+            payService.refund(orderDTO);
         }
 
         return orderDTO;
@@ -204,5 +208,12 @@ public class OrderServiceImpl implements OrderService {
             throw new SellException(ResultEnum.ORDER_UPDATE_FAIL);
         }
         return orderDTO;
+    }
+
+    @Override
+    public Page<OrderDTO> findList(Pageable pageable) {
+        Page<OrderMaster> orderMasterPage = orderMasterRepository.findAll(pageable);
+       List<OrderDTO> orderDTOList =  OrderMaster2OrderDTOConverter.conver(orderMasterPage.getContent());
+        return new PageImpl<OrderDTO>(orderDTOList, pageable, orderMasterPage.getTotalElements());
     }
 }

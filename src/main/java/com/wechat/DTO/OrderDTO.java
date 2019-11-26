@@ -1,8 +1,12 @@
 package com.wechat.DTO;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.wechat.Enum.OrderStatusEnum;
+import com.wechat.Enum.PayStatusEnum;
 import com.wechat.dataObject.OrderDetail;
+import com.wechat.utils.EnmuUtil;
 import com.wechat.utils.Serializr.Date2LongSerializer;
 import lombok.Data;
 
@@ -37,7 +41,7 @@ public class OrderDTO {
      */
     private String buyerOpenid;
     /**
-     * 订单总金额.
+     * 订单总金额
      */
     private BigDecimal orderAmount;
 
@@ -63,4 +67,14 @@ public class OrderDTO {
      * 商品信息
      */
     private List<OrderDetail> OrderDetailList;
+
+    @JsonIgnore
+    public OrderStatusEnum getOrderStatusEnum() {
+        return EnmuUtil.getByCode(orderStatus, OrderStatusEnum.class);
+    }
+
+    @JsonIgnore
+    public PayStatusEnum getPayStatusEnum() {
+        return EnmuUtil.getByCode(payStatus, PayStatusEnum.class);
+    }
 }

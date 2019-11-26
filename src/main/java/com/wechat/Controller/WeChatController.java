@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.net.URLEncoder;
 
 /**
+ * 微信授权模块
  * Created by lxy on 2019/11/6.
  */
 @Controller
@@ -26,7 +27,12 @@ public class WeChatController {
     @Autowired
     private WxMpService wxMpService;
 
-    //授权接口 作用：带着appid,redirect_uri回调地址,scope授权作用域,重定向到微信接口地址
+    /**
+     * 授权接口
+     * 作用：带着appid,redirect_uri回调地址,scope授权作用域,重定向到微信接口地址
+     * @param returnUrl
+     * @return
+     */
     @GetMapping("/authorize")
     public String authorize(@RequestParam("returnUrl") String returnUrl) {
         //配置
@@ -35,10 +41,19 @@ public class WeChatController {
         log.info("redirectUrl = {}", redirectUrl);
         log.info("returnUrl = {}", returnUrl);
 
-        return "redirect:" + redirectUrl;
+//        return "redirect:" + redirectUrl;
+//        此处openid写死了
+        return "redirect:" + returnUrl + "?openid=oTgZpwaNqC0JnYDFC58IPcyXL2PQ";
     }
 
-    //回调地址接口, 作用：接收code 换取openid
+
+    /**
+     * 回调地址接口
+     * 作用：接收code 换取openid
+     * @param code
+     * @param returnUrl
+     * @return
+     */
     @GetMapping("/userInfo")
     public String userInfo(@RequestParam("code") String code,
                            @RequestParam("state") String returnUrl) {

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 /**
+ * 微信授权示例练手
  * Created by lxy on 2019/11/6.
  */
 @RestController

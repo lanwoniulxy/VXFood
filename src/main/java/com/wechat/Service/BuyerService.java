@@ -4,7 +4,7 @@ package com.wechat.service;
 import com.wechat.DTO.OrderDTO;
 
 /**
- * 买家
+ * 买家端Service
  * Created by lxy on 2019/10/11.
  */
 public interface BuyerService {
